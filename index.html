@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Formación Ruta - Formación Profesional para Transportistas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-oscuro: #1e5f8e;
+            --azul-claro: #00b4d8;
+            --azul-medio: #0077be;
+            --blanco: #ffffff;
+            --gris-claro: #f8f9fa;
+            --gris: #6c757d;
+            --sombra: 0 4px 6px rgba(0,0,0,0.1);
+            --sombra-hover: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navegación */
+        .navbar {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--sombra);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--blanco);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--azul-claro);
+            font-size: 24px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--azul-claro);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--blanco);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul-oscuro) 100%);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 150%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            transform: rotate(180deg);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            color: var(--blanco);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            color: var(--blanco);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--blanco);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--blanco);
+            color: var(--azul-oscuro);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s backwards;
+            box-shadow: var(--sombra);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        /* Cursos Section */
+        .cursos-section {
+            padding: 80px 0;
+            background: var(--gris-claro);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gris);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .curso-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curso-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--azul-claro), var(--azul-medio));
+        }
+
+        .curso-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .curso-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .curso-card h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .curso-card p {
+            color: var(--gris);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .curso-details {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .curso-details li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .curso-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--azul-claro);
+            font-weight: bold;
+        }
+
+        .curso-price {
+            font-size: 1.8rem;
+            color: var(--azul-medio);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .curso-button {
+            display: block;
+            text-align: center;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .curso-button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--sombra);
+        }
+
+        /* Sobre Nosotros */
+        .about-section {
+            padding: 80px 0;
+            background: var(--blanco);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--azul-oscuro);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--gris);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            color: var(--blanco);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Ubicaciones */
+        .locations-section {
+            padding: 80px 0;
+            background: var(--gris-claro);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .location-card {
+            background: var(--blanco);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+            text-align: center;
+        }
+
+        .location-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 24px;
+            margin: 0 auto 1rem;
+        }
+
+        .location-card h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        .location-card address {
+            color: var(--gris);
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        /* Bolsa de Trabajo */
+        .job-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
+            color: var(--blanco);
+            text-align: center;
+        }
+
+        .job-section h2 {
+            color: var(--blanco);
+            margin-bottom: 1rem;
+        }
+
+        .job-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .job-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--azul-claro);
+        }
+
+        .footer-section p, .footer-section address {
+            opacity: 0.9;
+            line-height: 1.8;
+            font-style: normal;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--azul-oscuro);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Subpáginas */
+        .subpage {
+            display: none;
+            padding: 120px 0 80px;
+            min-height: 100vh;
+        }
+
+        .subpage.active {
+            display: block;
+        }
+
+        .subpage-header {
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-oscuro));
+            padding: 60px 0;
+            text-align: center;
+            color: var(--blanco);
+            margin-bottom: 3rem;
+        }
+
+        .subpage-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-detail {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .course-info-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--sombra);
+            margin-bottom: 2rem;
+        }
+
+        .course-info-card h2 {
+            color: var(--azul-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            padding: 1rem;
+            background: var(--gris-claro);
+            border-radius: 10px;
+        }
+
+        .info-item strong {
+            color: var(--azul-medio);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--azul-medio);
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--azul-oscuro);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showSection('home')">
+                <div class="logo-img">R</div>
+                <div class="logo-text">
+                    <h1>RUTA</h1>
+                    <span>Centro de formación</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showSection('home')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('cursos')">Cursos</a></li>
+                <li><a href="#" onclick="showSection('about')">Sobre Nosotros</a></li>
+                <li><a href="#" onclick="showSection('trabajo')">Bolsa de Trabajo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Home -->
+    <div id="home-section" class="section-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Formación Profesional para el Transporte</h2>
+                <p class="tagline">CONECTAMOS DESTINOS</p>
+                <p>Centro homologado especializado en la formación de conductores profesionales. Instalaciones modernas, flota propia y los mejores profesionales a tu servicio.</p>
+                <a href="#" onclick="showSection('cursos')" class="cta-button">Descubre Nuestros Cursos</a>
+            </div>
+        </section>
+
+        <!-- Cursos Principales -->
+        <section class="cursos-section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Cursos Principales</h2>
+                <p class="section-subtitle">Formación homologada y de calidad para profesionales del transporte</p>
+                
+                <div class="cursos-grid">
+                    <!-- CAP Mercancías y Viajeros -->
+                    <div class="curso-card">
+                        <div class="curso-icon">🚛</div>
+                        <h3>CAP Mercancías y Viajeros</h3>
+                        <p>Certificado de Aptitud Profesional obligatorio para conductores profesionales</p>
+                        <ul class="curso-details">
+                            <li>130 horas teóricas + 10 horas prácticas</li>
+                            <li>6 convocatorias anuales</li>
+                            <li>Grupos de 15-20 alumnos</li>
+                            <li>Profesorado cualificado</li>
+                        </ul>
+                        <div class="curso-price">450€</div>
+                        <a href="#" onclick="showSubpage('cap')" class="curso-button">Más información</a>
+                    </div>
+
+                    <!-- Renovación CAP -->
+                    <div class="curso-card">
+                        <div class="curso-icon">📋</div>
+                        <h3>Renovación CAP</h3>
+                        <p>Mantén tu certificación actualizada con nuestro curso de renovación</p>
+                        <ul class="curso-details">
+                            <li>35 horas teóricas</li>
+                            <li>Horarios flexibles</li>
+                            <li>Material actualizado</li>
+                            <li>Certificación inmediata</li>
+                        </ul>
+                        <div class="curso-price">190€</div>
+                        <a href="#" onclick="showSubpage('renovacion')" class="curso-button">Más información</a>
+                    </div>
+
+                    <!-- Recuperación de Puntos -->
+                    <div class="curso-card">
+                        <div class="curso-icon">🎯</div>
+                        <h3>Recuperación de Puntos</h3>
+                        <p>Cursos parciales y totales para recuperar los puntos de tu carnet</p>
+                        <ul class="curso-details">
+                            <li>Recuperación parcial (6 puntos)</li>
+                            <li>Recuperación total (12 puntos)</li>
+                            <li>Certificación oficial</li>
+                            <li>Asesoramiento personalizado</li>
+                        </ul>
+                        <div class="curso-price">Desde 150€</div>
+                        <a href="#" onclick="showSubpage('puntos')" class="curso-button">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nosotros Preview -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>¿Por qué elegir Centro de Formación Ruta?</h2>
+                        <p>Somos un centro de formación homologado con años de experiencia en la formación de conductores profesionales. Nuestro compromiso es ofrecer la mejor calidad educativa para que consigas tus objetivos profesionales.</p>
+                        <p>Contamos con instalaciones modernas, flota propia para prácticas y un equipo de profesionales altamente cualificados que te acompañarán en todo tu proceso formativo.</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Centro Homologado</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Flota Propia</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Profesorado Cualificado</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Instalaciones Modernas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <h3>Nuestra Experiencia</h3>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">2000+</span>
+                                <span class="stat-label">Alumnos Formados</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Tasa de Aprobados</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Años de Experiencia</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Centros en Lorca</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ubicaciones -->
+        <section class="locations-section" id="contacto">
+            <div class="container">
+                <h2 class="section-title">Nuestras Ubicaciones</h2>
+                <p class="section-subtitle">Dos centros en Lorca para tu comodidad</p>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <div class="location-icon">📍</div>
+                        <h3>Centro Principal</h3>
+                        <address>
+                            Carretera de Granada 61<br>
+                            30800 Lorca, Murcia<br>
+                            <strong>Tel: 968 XX XX XX</strong>
+                        </address>
+                    </div>
+                    
+                    <div class="location-card">
+                        <div class="location-icon">📍</div>
+                        <h3>Centro Secundario</h3>
+                        <address>
+                            Carretera Ortega Melgares 69<br>
+                            30800 Lorca, Murcia<br>
+                            <strong>Tel: 968 XX XX XX</strong>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sección Cursos -->
+    <div id="cursos-section" class="section-content">
+        <section class="cursos-section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section-title">Todos Nuestros Cursos</h2>
+                <p class="section-subtitle">Encuentra la formación que necesitas para tu carrera profesional</p>
+                
+                <div class="cursos-grid">
+                    <!-- CAP Mercancías -->
+                    <div class="curso-card">
+                        <div class="curso-icon">🚛</div>
+                        <h3>CAP Mercancías</h3>
+                        <p>Certificación profesional para el transporte de mercancías</p>
+                        <ul class="curso-details">
+                            <li>130 horas teóricas</li>
+                            <li>10 horas prácticas</li>
+                            <li>Examen oficial DGT</li>
+                            <li>Material incluido</li>
+                        </ul>
+                        <div class="curso-price">450€</div>
+                        <a href="#" onclick="showSubpage('cap-mercancias')" class="curso-button">Inscríbete</a>
+                    </div>
+
+                    <!-- CAP Viajeros -->
+                    <div class="curso-card">
+                        <div class="curso-icon">🚌</div>
+                        <h3>CAP Viajeros</h3>
+                        <p>Certificación profesional para el transporte de viajeros</p>
+                        <ul class="curso-details">
+                            <li>130 horas teóricas</li>
+                            <li>10 horas prácticas</li>
+                            <li>Examen oficial DGT</li>
+                            <li>Material incluido</li>
+                        </ul>
+                        <div class="curso-price">450€</div>
+                        <a href="#" onclick="showSubpage('cap-viajeros')" class="curso-button">Inscríbete</a>
+                    </div>
+
+                    <!-- Renovación CAP -->
+                    <div class="curso-card">
+                        <div class="curso-icon">📋</div>
+                        <h3>Renovación CAP</h3>
+                        <p>Actualiza tu certificación cada 5 años</p>
+                        <ul class="curso-details">
+                            <li>35 horas teóricas</li>
+                            <li>Sin examen final</li>
+                            <li>Horarios flexibles</li>
+                            <li>Certificación inmediata</li>
+                        </ul>
+                        <div class="curso-price">190€</div>
+                        <a href="#" onclick="showSubpage('renovacion')" class="curso-button">Inscríbete</a>
+                    </div>
+
+                    <!-- Recuperación Parcial -->
+                    <div class="curso-card">
+                        <div class="curso-icon">⚡</div>
+                        <h3>Recuperación Parcial</h3>
+                        <p>Recupera hasta 6 puntos de tu carnet</p>
+                        <ul class="curso-details">
+                            <li>12 horas de formación</li>
+                            <li>Grupos reducidos</li>
+                            <li>Horarios adaptables</li>
+                            <li>Certificación DGT</li>
+                        </ul>
+                        <div class="curso-price">150€</div>
+                        <a href="#" onclick="showSubpage('puntos-parcial')" class="curso-button">Inscríbete</a>
+                    </div>
+
+                    <!-- Recuperación Total -->
+                    <div class="curso-card">
+                        <div class="curso-icon">🎯</div>
+                        <h3>Recuperación Total</h3>
+                        <p>Recupera los 12 puntos de tu carnet</p>
+                        <ul class="curso-details">
+                            <li>24 horas de formación</li>
+                            <li>Formación completa</li>
+                            <li>Material didáctico incluido</li>
+                            <li>Certificación oficial</li>
+                        </ul>
+                        <div class="curso-price">280€</div>
+                        <a href="#" onclick="showSubpage('puntos-total')" class="curso-button">Inscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sección Sobre Nosotros -->
+    <div id="about-section" class="section-content">
+        <section class="about-section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section-title">Sobre Centro de Formación Ruta</h2>
+                <p class="section-subtitle">Tu centro de confianza para la formación profesional en transporte</p>
+                
+                <div class="about-content" style="margin-top: 3rem;">
+                    <div class="about-text">
+                        <h2>Nuestra Historia y Compromiso</h2>
+                        <p>Centro de Formación Ruta nació con la visión de proporcionar formación de calidad a los profesionales del transporte. Con más de una década de experiencia, nos hemos consolidado como el centro de referencia en Lorca y su comarca.</p>
+                        <p>Nuestro compromiso va más allá de la simple formación: acompañamos a cada alumno en su desarrollo profesional, ofreciendo no solo conocimientos técnicos, sino también las herramientas necesarias para destacar en el sector del transporte.</p>
+                        <p>La calidad de nuestra enseñanza se refleja en nuestros resultados: más del 95% de nuestros alumnos superan los exámenes oficiales en su primera convocatoria.</p>
+                        
+                        <h3 style="margin-top: 2rem; color: var(--azul-medio);">¿Qué nos hace diferentes?</h3>
+                        <div class="features-grid" style="margin-top: 1.5rem;">
+                            <div class="feature-item">
+                                <div class="feature-icon">🏆</div>
+                                <span>Excelencia Educativa</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">👨‍🏫</div>
+                                <span>Atención Personalizada</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📚</div>
+                                <span>Material Actualizado</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🚀</div>
+                                <span>Tecnología Moderna</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <h3>Nuestros Valores</h3>
+                        <p style="margin: 1.5rem 0;">Trabajamos cada día para ser el puente entre tu situación actual y tus metas profesionales</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Compromiso</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Soporte al Alumno</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Convocatorias Anuales</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Profesores Expertos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instalaciones -->
+                <div style="margin-top: 4rem;">
+                    <h2 style="text-align: center; color: var(--azul-oscuro); margin-bottom: 3rem;">Nuestras Instalaciones</h2>
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <div class="location-icon">🏫</div>
+                            <h3>Aulas Modernas</h3>
+                            <p>Espacios climatizados con tecnología audiovisual de última generación para una experiencia de aprendizaje óptima.</p>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-icon">🚛</div>
+                            <h3>Flota Propia</h3>
+                            <p>Vehículos modernos y perfectamente mantenidos para las prácticas, adaptados a cada tipo de formación.</p>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-icon">💻</div>
+                            <h3>Aula Informática</h3>
+                            <p>Equipos actualizados para la realización de test y simulacros de examen en condiciones reales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sección Bolsa de Trabajo -->
+    <div id="trabajo-section" class="section-content">
+        <section class="job-section" style="padding-top: 120px;">
+            <div class="container">
+                <h2>Bolsa de Trabajo</h2>
+                <p>Conectamos talento con oportunidades laborales en el sector del transporte</p>
+                
+                <div class="job-benefits">
+                    <div class="benefit-card">
+                        <h3>🤝 Red de Empresas</h3>
+                        <p>Colaboramos con más de 50 empresas de transporte de la región que confían en nuestros alumnos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>📋 Gestión de CV</h3>
+                        <p>Te ayudamos a preparar tu currículum y te orientamos para las entrevistas de trabajo.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>🎯 Ofertas Exclusivas</h3>
+                        <p>Acceso prioritario a ofertas de empleo exclusivas para nuestros alumnos y exalumnos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>📈 Seguimiento</h3>
+                        <p>Acompañamiento continuo en tu desarrollo profesional incluso después de finalizar tu formación.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <h3 style="color: var(--blanco); margin-bottom: 1.5rem;">¿Eres empresa y buscas conductores cualificados?</h3>
+                    <p style="margin-bottom: 2rem;">Contacta con nosotros y accede a nuestra base de datos de profesionales formados y certificados.</p>
+                    <a href="#contacto" class="cta-button">Contactar Ahora</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Subpáginas de Cursos -->
+    
+    <!-- Subpágina CAP General -->
+    <div id="cap-subpage" class="subpage">
+        <div class="subpage-header">
+            <h1>CAP - Certificado de Aptitud Profesional</h1>
+            <p>Formación obligatoria para conductores profesionales</p>
+        </div>
+        <div class="course-detail">
+            <a href="#" onclick="showSection('cursos')" class="back-button">← Volver a Cursos</a>
+            
+            <div class="course-info-card">
+                <h2>Información del Curso CAP</h2>
+                <p>El Certificado de Aptitud Profesional (CAP) es obligatorio para todos los conductores profesionales que realicen transporte de mercancías o viajeros. En Centro de Formación Ruta te preparamos para obtener esta certificación con la máxima garantía de éxito.</p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Duración</strong>
+                        140 horas (130 teóricas + 10 prácticas)
+                    </div>
+                    <div class="info-item">
+                        <strong>Precio</strong>
+                        450€ (Financiación disponible)
+                    </div>
+                    <div class="info-item">
+                        <strong>Convocatorias</strong>
+                        6 anuales (bimensuales)
+                    </div>
+                    <div class="info-item">
+                        <strong>Modalidades</strong>
+                        Mercancías y Viajeros
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-info-card">
+                <h2>Contenido del Curso</h2>
+                <ul class="curso-details" style="list-style: none;">
+                    <li>✓ Conducción racional basada en normas de seguridad</li>
+                    <li>✓ Aplicación de la reglamentación</li>
+                    <li>✓ Salud, seguridad vial y medioambiental</li>
+                    <li>✓ Servicio y logística</li>
+                    <li>✓ Prácticas de conducción en vehículos reales</li>
+                    <li>✓ Simulacros de examen oficial</li>
+                </ul>
+            </div>
+
+            <div class="course-info-card">
+                <h2>Requisitos</h2>
+                <ul class="curso-details" style="list-style: none;">
+                    <li>✓ Permiso de conducción C1, C o C+E para mercancías</li>
+                    <li>✓ Permiso de conducción D1, D o D+E para viajeros</li>
+                    <li>✓ Ser mayor de 18 años (mercancías) o 21 años (viajeros)</li>
+                </ul>
+            </div>
+
+            <div class="course-info-card" style="text-align: center;">
+                <h2>¿Listo para empezar?</h2>
+                <p>Próximos cursos: Enero, Marzo, Mayo, Julio, Septiembre y Noviembre</p>
+                <a href="#contacto" onclick="showSection('home')" class="curso-button" style="display: inline-block; margin-top: 1rem;">Inscríbete Ahora</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subpágina Renovación CAP -->
+    <div id="renovacion-subpage" class="subpage">
+        <div class="subpage-header">
+            <h1>Renovación CAP</h1>
+            <p>Mantén tu certificación actualizada</p>
+        </div>
+        <div class="course-detail">
+            <a href="#" onclick="showSection('cursos')" class="back-button">← Volver a Cursos</a>
+            
+            <div class="course-info-card">
+                <h2>Sobre la Renovación CAP</h2>
+                <p>El CAP debe renovarse cada 5 años. Nuestro curso de renovación te permite mantener tu certificación vigente con una formación actualizada y adaptada a las últimas normativas del sector.</p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Duración</strong>
+                        35 horas teóricas
+                    </div>
+                    <div class="info-item">
+                        <strong>Precio</strong>
+                        190€
+                    </div>
+                    <div class="info-item">
+                        <strong>Horarios</strong>
+                        Flexibles (mañana/tarde)
+                    </div>
+                    <div class="info-item">
+                        <strong>Sin examen</strong>
+                        Solo asistencia obligatoria
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-info-card">
+                <h2>Ventajas de Renovar con Nosotros</h2>
+                <ul class="curso-details" style="list-style: none;">
+                    <li>✓ Tramitación inmediata con la DGT</li>
+                    <li>✓ Material didáctico actualizado</li>
+                    <li>✓ Profesores con amplia experiencia</li>
+                    <li>✓ Grupos reducidos para mejor atención</li>
+                    <li>✓ Certificado emitido al finalizar el curso</li>
+                </ul>
+            </div>
+
+            <div class="course-info-card" style="text-align: center;">
+                <h2>Próximas Convocatorias</h2>
+                <p>Iniciamos cursos de renovación todos los meses</p>
+                <a href="#contacto" onclick="showSection('home')" class="curso-button" style="display: inline-block; margin-top: 1rem;">Reserva tu Plaza</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subpágina Recuperación de Puntos -->
+    <div id="puntos-subpage" class="subpage">
+        <div class="subpage-header">
+            <h1>Recuperación de Puntos</h1>
+            <p>Recupera los puntos de tu carnet de conducir</p>
+        </div>
+        <div class="course-detail">
+            <a href="#" onclick="showSection('cursos')" class="back-button">← Volver a Cursos</a>
+            
+            <div class="course-info-card">
+                <h2>Cursos de Sensibilización y Reeducación Vial</h2>
+                <p>Ofrecemos cursos homologados por la DGT para la recuperación parcial o total de los puntos del carnet de conducir.</p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Recuperación Parcial</strong>
+                        Hasta 6 puntos - 12 horas
+                    </div>
+                    <div class="info-item">
+                        <strong>Recuperación Total</strong>
+                        12 puntos - 24 horas
+                    </div>
+                    <div class="info-item">
+                        <strong>Precio Parcial</strong>
+                        150€
+                    </div>
+                    <div class="info-item">
+                        <strong>Precio Total</strong>
+                        280€
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-info-card">
+                <h2>¿Cuándo puedo hacer el curso?</h2>
+                <ul class="curso-details" style="list-style: none;">
+                    <li>✓ <strong>Parcial:</strong> Cuando hayas perdido algunos puntos pero no todos</li>
+                    <li>✓ <strong>Total:</strong> Cuando hayas perdido la totalidad de los puntos</li>
+                    <li>✓ No haber realizado un curso en los últimos 2 años (parcial)</li>
+                    <li>✓ Haber cumplido el periodo de suspensión (total)</li>
+                </ul>
+            </div>
+
+            <div class="course-info-card">
+                <h2>Metodología</h2>
+                <p>Nuestros cursos combinan:</p>
+                <ul class="curso-details" style="list-style: none;">
+                    <li>✓ Formación teórica sobre seguridad vial</li>
+                    <li>✓ Dinámicas de grupo participativas</li>
+                    <li>✓ Reflexión sobre conductas de riesgo</li>
+                    <li>✓ Asesoramiento personalizado</li>
+                </ul>
+            </div>
+
+            <div class="course-info-card" style="text-align: center;">
+                <h2>Recupera tus Puntos</h2>
+                <p>Grupos semanales - Plazas limitadas</p>
+                <a href="#contacto" onclick="showSection('home')" class="curso-button" style="display: inline-block; margin-top: 1rem;">Consultar Disponibilidad</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Centro de Formación RUTA</h3>
+                <p>CONECTAMOS DESTINOS</p>
+                <p>Tu centro de confianza para la formación profesional en el transporte. Homologados por la DGT.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Nuestros Cursos</h3>
+                <p>• CAP Mercancías y Viajeros<br>
+                • Renovación CAP<br>
+                • Recuperación de Puntos<br>
+                • Formación Continua</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ubicación Principal</h3>
+                <address>
+                    Carretera de Granada 61<br>
+                    30800 Lorca, Murcia<br>
+                    Tel: 968 XX XX XX<br>
+                    info@centroruta.es
+                </address>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horario</h3>
+                <p>Lunes a Viernes:<br>9:00 - 14:00 | 16:00 - 20:00<br>
+                Sábados:<br>9:00 - 13:00</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Centro de Formación RUTA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestión del menú móvil
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Gestión de secciones
+        function showSection(sectionName) {
+            // Ocultar todas las secciones y subpáginas
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.subpage').forEach(subpage => {
+                subpage.classList.remove('active');
+            });
+            
+            // Mostrar la sección seleccionada
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Cerrar menú móvil
+            navMenu.classList.remove('active');
+            
+            // Scroll al inicio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Gestión de subpáginas
+        function showSubpage(subpageName) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.subpage').forEach(subpage => {
+                subpage.classList.remove('active');
+            });
+            
+            // Mostrar la subpágina seleccionada
+            const targetSubpage = document.getElementById(subpageName + '-subpage');
+            if (targetSubpage) {
+                targetSubpage.classList.add('active');
+            }
+            
+            // Scroll al inicio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Inicializar mostrando la sección home
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+
+        // Animación al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.curso-card, .location-card, .benefit-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
