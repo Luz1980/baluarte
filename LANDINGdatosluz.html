@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de Formación Ruta en Murcia. Cursos CAP Mercancías, CAP Viajeros, Renovación CAP y Recuperación de Puntos. Centro homologado. ☎️ 672 24 93 68">
+    <meta name="keywords" content="CAP Murcia, cursos CAP, formación conductores, recuperación puntos, centro homologado transporte">
+    <title>Centro de Formación Ruta | Cursos CAP y Recuperación de Puntos en Murcia</title>
+    <link rel="icon" href="rutalogo.png" type="image/png">
+    
+    <script src="https://centeia-sass-gsxz.onrender.com/static/embed.min.js" data-public-bot-id="a1b1fc9d-72f4-429f-8ad9-fc83c9126249" defer></script>
+    
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/XXXXXX/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --naranja: #E85D14;
+            --naranja-claro: #F9A03F;
+            --blanco: #fff;
+            --gris-claro: #f8f9fa;
+            --gris: #6c757d;
+            --negro: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--negro);
+        }
+
+        /* Botones flotantes WhatsApp y Teléfono */
+        .floating-btns {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .float-btn:hover { 
+            transform: scale(1.1); 
+        }
+
+        .float-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 70px;
+            background: var(--negro);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .float-btn:hover::after {
+            opacity: 1;
+        }
+
+        .whatsapp-btn { background: #25D366; }
+        .phone-btn { background: var(--naranja); }
+        
+        /* Animación de pulso para llamar la atención */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .floating-btns .whatsapp-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--naranja) 0%, var(--naranja-claro) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--naranja);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: var(--naranja);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #d14d0a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--naranja-claro) 0%, var(--naranja) 100%);
+            padding: 150px 0 80px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* Secciones */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--naranja);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gris);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Beneficios */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .beneficio-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gris-claro);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .beneficio-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .beneficio-card h3 {
+            color: var(--naranja);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cursos */
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .curso-card {
+            background: white;
+            border: 2px solid var(--gris-claro);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curso-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--naranja), var(--naranja-claro));
+        }
+
+        .curso-card:hover {
+            border-color: var(--naranja);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(232, 93, 20, 0.2);
+        }
+
+        .curso-card h3 {
+            color: var(--naranja);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .curso-details {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .curso-details li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .curso-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--naranja);
+            font-weight: bold;
+        }
+
+        .curso-cta {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .curso-cta .btn {
+            flex: 1;
+            font-size: 0.9rem;
+            padding: 0.7rem 1rem;
+        }
+
+        /* Stats */
+        .stats {
+            background: linear-gradient(135deg, var(--naranja), var(--naranja-claro));
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* FAQs */
+        .faq-item {
+            background: var(--gris-claro);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--naranja);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Contacto */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contacto-info {
+            background: var(--gris-claro);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contacto-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contacto-item h4 {
+            color: var(--naranja);
+            margin-bottom: 0.5rem;
+        }
+
+        .contacto-item a {
+            color: var(--negro);
+            text-decoration: none;
+        }
+
+        .contacto-item a:hover {
+            color: var(--naranja);
+        }
+
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gris-claro);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--naranja);
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--gris-claro);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--naranja);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-msg {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .form-msg.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-msg.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--negro);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: var(--naranja-claro);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--naranja-claro);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .nav-cta { display: none; }
+            .contacto-grid { grid-template-columns: 1fr; }
+            .floating-btns { right: 15px; bottom: 15px; }
+            .float-btn { width: 55px; height: 55px; font-size: 24px; }
+        }
+
+        input[name="website"] {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botones flotantes -->
+    <div class="floating-btns">
+        <a href="https://wa.me/34672249368" class="float-btn whatsapp-btn" target="_blank" aria-label="WhatsApp" data-tooltip="Chatea por WhatsApp">
+            💬
+        </a>
+        <a href="tel:+34672249368" class="float-btn phone-btn" aria-label="Llamar" data-tooltip="Llamar ahora">
+            📞
+        </a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="rutalogo.png" alt="Centro de Formación Ruta" width="50" height="50">
+                <div>
+                    <h1>RUTA</h1>
+                    <span style="font-size: 0.9rem;">Centro de Formación</span>
+                </div>
+            </a>
+            <div class="nav-cta">
+                <a href="tel:+34672249368" class="btn btn-primary">📞 672 24 93 68</a>
+                <a href="#contacto" class="btn btn-secondary">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h2>Centro de Formación para Conductores Profesionales</h2>
+            <p class="tagline">✨ CONECTAMOS DESTINOS ✨</p>
+            <p>Centro homologado especializado en CAP Mercancías, CAP Viajeros, Renovación CAP y Recuperación de Puntos en Murcia. <strong>Más de 10 años formando profesionales del transporte.</strong></p>
+            <div style="background: rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 10px; margin: 1.5rem auto; max-width: 500px;">
+                <p style="font-size: 1rem; margin: 0;">💬 <strong>Chat en vivo disponible</strong> | 📞 672 24 93 68 | 📧 Respuesta rápida</p>
+            </div>
+            <div class="hero-ctas">
+                <a href="https://wa.me/34672249368" class="btn btn-primary">💬 WhatsApp Directo</a>
+                <a href="tel:+34672249368" class="btn btn-secondary">📞 Llamar Ahora</a>
+                <a href="#cursos" class="btn btn-primary">Ver Cursos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegir Centro de Formación Ruta?</h2>
+            <p class="section-subtitle">Tu centro de confianza para formación de conductores profesionales</p>
+            
+            <div class="beneficios-grid">
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">✅</div>
+                    <h3>Centro Homologado</h3>
+                    <p>Autorizado oficialmente por la DGT para impartir formación profesional del transporte</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">🎓</div>
+                    <h3>+10 Años Experiencia</h3>
+                    <p>Más de una década formando conductores profesionales en Murcia y región</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">🏫</div>
+                    <h3>Formación Presencial</h3>
+                    <p>Clases presenciales en nuestros 2 centros con instalaciones modernas</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icon">💼</div>
+                    <h3>Bolsa de Trabajo</h3>
+                    <p>Red de +50 empresas colaboradoras del sector transporte en Murcia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos -->
+    <section id="cursos" class="section" style="background: var(--gris-claro);">
+        <div class="container">
+            <h2 class="section-title">Cursos de Formación para Conductores</h2>
+            <p class="section-subtitle">Cursos CAP y Recuperación de Puntos homologados en Murcia</p>
+            
+            <div class="cursos-grid">
+                <!-- CAP Mercancías -->
+                <div class="curso-card">
+                    <h3>🚛 CAP Mercancías</h3>
+                    <p>Certificado de Aptitud Profesional obligatorio para conducir vehículos de transporte de mercancías</p>
+                    <ul class="curso-details">
+                        <li><strong>130h teóricas + 10h prácticas</strong></li>
+                        <li>Formación presencial de calidad</li>
+                        <li>Incluye examen oficial DGT</li>
+                        <li>Material didáctico incluido</li>
+                        <li>Centro homologado</li>
+                    </ul>
+                    <div class="curso-cta">
+                        <a href="https://wa.me/34672249368?text=Hola, quiero información sobre CAP Mercancías" class="btn btn-secondary">💬 Más Info</a>
+                        <a href="tel:+34672249368" class="btn btn-primary">📞 Llamar</a>
+                    </div>
+                </div>
+
+                <!-- CAP Viajeros -->
+                <div class="curso-card">
+                    <h3>🚌 CAP Viajeros</h3>
+                    <p>Certificación profesional para conducir vehículos de transporte de viajeros</p>
+                    <ul class="curso-details">
+                        <li><strong>130h teóricas + 10h prácticas</strong></li>
+                        <li>Formación presencial de calidad</li>
+                        <li>Incluye examen oficial DGT</li>
+                        <li>Material actualizado</li>
+                        <li>Grupos reducidos</li>
+                    </ul>
+                    <div class="curso-cta">
+                        <a href="https://wa.me/34672249368?text=Hola, quiero información sobre CAP Viajeros" class="btn btn-secondary">💬 Más Info</a>
+                        <a href="tel:+34672249368" class="btn btn-primary">📞 Llamar</a>
+                    </div>
+                </div>
+
+                <!-- Renovación CAP -->
+                <div class="curso-card">
+                    <h3>📋 Renovación CAP</h3>
+                    <p>Renueva tu CAP cada 5 años y mantén tu certificación actualizada</p>
+                    <ul class="curso-details">
+                        <li><strong>35 horas teóricas</strong></li>
+                        <li><strong>Sin examen final</strong></li>
+                        <li>Horarios flexibles</li>
+                        <li>Normativa actualizada</li>
+                        <li>Tramitación incluida</li>
+                    </ul>
+                    <div class="curso-cta">
+                        <a href="https://wa.me/34672249368?text=Hola, necesito renovar mi CAP" class="btn btn-secondary">💬 Renovar</a>
+                        <a href="tel:+34672249368" class="btn btn-primary">📞 Llamar</a>
+                    </div>
+                </div>
+
+                <!-- Recuperación Parcial -->
+                <div class="curso-card">
+                    <h3>⚡ Recuperación Parcial</h3>
+                    <p>Recupera hasta 6 puntos de tu permiso de conducir</p>
+                    <ul class="curso-details">
+                        <li><strong>12 horas presenciales</strong></li>
+                        <li>Recupera hasta 6 puntos</li>
+                        <li><strong>Sin examen</strong></li>
+                        <li>Cada 2 años (1 año si eres profesional)</li>
+                        <li>Centro autorizado DGT</li>
+                    </ul>
+                    <div class="curso-cta">
+                        <a href="https://wa.me/34672249368?text=Hola, quiero recuperar puntos del carnet" class="btn btn-secondary">💬 Más Info</a>
+                        <a href="tel:+34672249368" class="btn btn-primary">📞 Llamar</a>
+                    </div>
+                </div>
+
+                <!-- Recuperación Total -->
+                <div class="curso-card">
+                    <h3>🎯 Recuperación Total</h3>
+                    <p>Recupera los 12 puntos completos de tu permiso de conducir</p>
+                    <ul class="curso-details">
+                        <li><strong>24 horas presenciales</strong></li>
+                        <li>Recuperación total (12 puntos)</li>
+                        <li>Incluye prueba teórica DGT</li>
+                        <li>Asesoramiento completo</li>
+                        <li>Material incluido</li>
+                    </ul>
+                    <div class="curso-cta">
+                        <a href="https://wa.me/34672249368?text=Hola, necesito recuperación total de puntos" class="btn btn-secondary">💬 Más Info</a>
+                        <a href="tel:+34672249368" class="btn btn-primary">📞 Llamar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>¿No sabes qué curso necesitas?</strong></p>
+                <a href="https://wa.me/34672249368" class="btn btn-secondary" style="font-size: 1.1rem;">💬 Te Asesoramos Gratis por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section stats">
+        <div class="container">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Nuestra Trayectoria</h2>
+            <p style="font-size: 1.1rem; opacity: 0.95;">Más de una década formando conductores profesionales en Murcia y comarca</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>2000+</h3>
+                    <p>Alumnos Formados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Tasa de Aprobados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>+10</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Empresas Colaboradoras</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs" class="section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes sobre Cursos CAP</h2>
+            <p class="section-subtitle">Resuelve tus dudas sobre formación de conductores profesionales</p>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Qué es el CAP y por qué lo necesito?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Es el certificado obligatorio que habilita para trabajar como conductor profesional; sin él no se puede ejercer.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cómo sé si me corresponde CAP Inicial o Renovación?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Si obtuviste el permiso C después del 11/09/2009 o el D después del 11/09/2008 necesitas CAP Inicial; si fue antes, solo debes renovar cada 5 años.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿El CAP Inicial lleva examen?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí. La Renovación CAP no lleva examen.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cada cuánto debo renovar el CAP?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cada 5 años; recomendable hacerlo dentro del último año antes de la caducidad.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Puedo trabajar con el CAP caducado?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No; es una infracción muy grave con sanción de 2.001 €.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Los cursos son presenciales u online?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Presenciales; la normativa exige asistencia en aula en nuestros centros.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Dónde están ubicados?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Centro principal: Ctra. Granada, 61, 30800 Lorca (Murcia). Centro secundario: C. Ortega Melgares, 69, 30800 Lorca (Murcia).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Qué documentación necesito para matricularme?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>DNI/NIE, permiso de conducir y datos de contacto; si renuevas, la tarjeta CAP.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Ofrecéis financiación?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, para CAP Inicial y Renovación (según curso). Contáctanos para más información.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Los cursos pueden bonificarse por FUNDAE?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, para empresas con crédito disponible. Lo verificamos contigo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Tramitáis la tarjeta CAP tras el curso?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, una vez completada la asistencia y, si corresponde, superado el examen; tasas aparte.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Tenéis bolsa de trabajo?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí; colaboramos con más de 50 empresas del sector en Murcia, con gestión de CV, orientación para entrevistas, ofertas exclusivas para alumnos y exalumnos, y seguimiento profesional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">¿Tienes más dudas?</p>
+                <a href="https://wa.me/34672249368" class="btn btn-secondary">💬 Pregúntanos por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bolsa de Trabajo -->
+    <section class="section" style="background: var(--gris-claro);">
+        <div class="container">
+            <h2 class="section-title">Bolsa de Trabajo</h2>
+            <p class="section-subtitle">Conectamos conductores profesionales con empresas del sector transporte</p>
+            
+            <div class="beneficios-grid">
+                <div class="beneficio-card" style="background: linear-gradient(135deg, var(--naranja), var(--naranja-claro)); color: white;">
+                    <div class="beneficio-icon">🤝</div>
+                    <h3 style="color: white;">Red de Empresas</h3>
+                    <p style="color: white;">Colaboramos con más de 50 empresas de transporte en Murcia y región</p>
+                </div>
+                <div class="beneficio-card" style="background: linear-gradient(135deg, var(--naranja), var(--naranja-claro)); color: white;">
+                    <div class="beneficio-icon">📋</div>
+                    <h3 style="color: white;">Gestión de CV</h3>
+                    <p style="color: white;">Te ayudamos a preparar tu currículum y orientamos para entrevistas</p>
+                </div>
+                <div class="beneficio-card" style="background: linear-gradient(135deg, var(--naranja), var(--naranja-claro)); color: white;">
+                    <div class="beneficio-icon">🎯</div>
+                    <h3 style="color: white;">Ofertas Exclusivas</h3>
+                    <p style="color: white;">Acceso prioritario a ofertas de empleo para alumnos y exalumnos</p>
+                </div>
+                <div class="beneficio-card" style="background: linear-gradient(135deg, var(--naranja), var(--naranja-claro)); color: white;">
+                    <div class="beneficio-icon">📈</div>
+                    <h3 style="color: white;">Seguimiento</h3>
+                    <p style="color: white;">Acompañamiento continuo en tu desarrollo profesional</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; background: white; padding: 2rem; border-radius: 15px;">
+                <h3 style="color: var(--naranja); margin-bottom: 1rem;">¿Eres empresa y buscas conductores cualificados?</h3>
+                <p style="margin-bottom: 1.5rem;">Accede a nuestra base de datos de profesionales formados y certificados</p>
+                <a href="mailto:luz@balua.online" class="btn btn-secondary">📧 Contacto Empresas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contacta con Centro de Formación Ruta</h2>
+            <p class="section-subtitle">Estamos en Murcia para ayudarte. Llámanos, escríbenos por WhatsApp o completa el formulario</p>
+            
+            <div class="contacto-grid">
+                <div>
+                    <div class="contacto-info">
+                        <div class="contacto-item">
+                            <h4>📍 Centro Principal</h4>
+                            <p>Ctra. Granada, 61<br>30800 Lorca, Murcia</p>
+                        </div>
+                        <div class="contacto-item">
+                            <h4>📍 Centro Secundario</h4>
+                            <p>C. Ortega Melgares, 69<br>30800 Lorca, Murcia</p>
+                        </div>
+                        <div class="contacto-item">
+                            <h4>📞 Teléfono</h4>
+                            <p><a href="tel:+34672249368"><strong>672 24 93 68</strong></a></p>
+                        </div>
+                        <div class="contacto-item">
+                            <h4>💬 WhatsApp</h4>
+                            <p><a href="https://wa.me/34672249368"><strong>672 24 93 68</strong></a></p>
+                        </div>
+                        <div class="contacto-item">
+                            <h4>📧 Email</h4>
+                            <p><a href="mailto:luz@balua.online">luz@balua.online</a></p>
+                        </div>
+                        <div class="contacto-item">
+                            <h4>⏰ Horario</h4>
+                            <p>Lunes a Viernes: 9:00 - 14:00 y 16:00 - 20:00<br>Sábados: 9:00 - 13:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="contactForm">
+                        <h3 style="color: var(--naranja); margin-bottom: 1.5rem; text-align: center;">📝 Solicita Información</h3>
+                        
+                        <div class="form-msg" id="formMessage"></div>
+
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan García Martínez" autocomplete="name">
+
+                        <label for="telefono">Teléfono de contacto *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 600 123 456" pattern="[0-9]{9}" title="Introduce 9 dígitos" autocomplete="tel">
+
+                        <label for="email">Email (opcional)</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
+
+                        <label for="curso">¿Qué curso te interesa? *</label>
+                        <select id="curso" name="curso" required>
+                            <option value="">-- Selecciona un curso --</option>
+                            <option value="cap-mercancias">🚛 CAP Mercancías (140h)</option>
+                            <option value="cap-viajeros">🚌 CAP Viajeros (140h)</option>
+                            <option value="renovacion-cap">📋 Renovación CAP (35h)</option>
+                            <option value="recuperacion-parcial">⚡ Recuperación Parcial (12h - 6 puntos)</option>
+                            <option value="recuperacion-total">🎯 Recuperación Total (24h - 12 puntos)</option>
+                            <option value="curso-puente">🔄 Curso Puente (Mercancías ↔ Viajeros)</option>
+                            <option value="consulta">💬 Consulta General / Asesoramiento</option>
+                        </select>
+
+                        <label for="mensaje">Cuéntanos más (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Ej: Quiero saber fechas del próximo curso, precios, si tiene financiación, etc."></textarea>
+
+                        <div style="background: var(--gris-claro); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer; margin-bottom: 0;">
+                                <input type="checkbox" id="acepto" name="acepto" required style="width: auto; margin: 0.3rem 0 0 0;">
+                                <span style="font-size: 0.9rem; color: var(--gris);">Acepto la política de privacidad y autorizo el tratamiento de mis datos para recibir información sobre los cursos *</span>
+                            </label>
+                        </div>
+
+                        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                        <button type="submit" class="btn btn-secondary" style="width: 100%; font-size: 1.1rem; padding: 1rem;">
+                            📤 Enviar Solicitud
+                        </button>
+
+                        <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--gris-claro);">
+                            <p style="font-size: 0.95rem; color: var(--gris); margin-bottom: 1rem;">
+                                <strong>¿Prefieres contacto inmediato?</strong>
+                            </p>
+                            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                                <a href="tel:+34672249368" class="btn btn-primary" style="flex: 1; min-width: 140px;">📞 Llamar Ahora</a>
+                                <a href="https://wa.me/34672249368" class="btn btn-secondary" style="flex: 1; min-width: 140px;">💬 WhatsApp</a>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--gris); margin-top: 0.8rem;">
+                                Horario: L-V 9:00-14:00 y 16:00-20:00 | Sábados 9:00-13:00<br>
+                                <span style="color: var(--naranja); font-weight: bold;">💬 Chat en vivo disponible en la esquina inferior derecha</span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Centro de Formación RUTA</h3>
+                    <p><strong>CONECTAMOS DESTINOS</strong></p>
+                    <p style="margin-top: 1rem;">Centro homologado especializado en formación profesional para conductores del sector transporte en Murcia.</p>
+                </div>
+                
+                <div>
+                    <h3>Cursos CAP</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#cursos">CAP Mercancías</a></li>
+                        <li><a href="#cursos">CAP Viajeros</a></li>
+                        <li><a href="#cursos">Renovación CAP</a></li>
+                        <li><a href="#cursos">Recuperación de Puntos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contacto</h3>
+                    <p>
+                        📞 <a href="tel:+34672249368"><strong>672 24 93 68</strong></a><br>
+                        💬 <a href="https://wa.me/34672249368">WhatsApp</a><br>
+                        📧 <a href="mailto:luz@balua.online">luz@balua.online</a>
+                    </p>
+                </div>
+                
+                <div>
+                    <h3>Nuestras Sedes</h3>
+                    <p>
+                        <strong>Centro Principal:</strong><br>
+                        Ctra. Granada, 61<br>
+                        30800 Lorca, Murcia<br><br>
+                        <strong>Centro Secundario:</strong><br>
+                        C. Ortega Melgares, 69<br>
+                        30800 Lorca, Murcia
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Centro de Formación RUTA - Murcia. Todos los derechos reservados. | Formación CAP y Recuperación de Puntos</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQs
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isActive = btn.classList.contains('active');
+                
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    btn.classList.add('active');
+                    btn.nextElementSibling.classList.add('active');
+                }
+            });
+        });
+
+        // Formulario de contacto mejorado
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verificar honeypot anti-spam
+            const honeypot = this.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value !== '') {
+                console.log('Posible spam detectado');
+                return false;
+            }
+            
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const curso = document.getElementById('curso').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+            const acepto = document.getElementById('acepto').checked;
+            const formMessage = document.getElementById('formMessage');
+            
+            // Validaciones
+            if (!nombre || nombre.length < 3) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ Por favor, introduce tu nombre completo';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            if (!telefono) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ El teléfono es obligatorio para contactarte';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Validar formato teléfono (9 dígitos)
+            const telefonoLimpio = telefono.replace(/\s/g, '');
+            if (!/^[0-9]{9}$/.test(telefonoLimpio)) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ El teléfono debe tener 9 dígitos (ej: 600123456)';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            if (!curso) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ Por favor, selecciona el curso que te interesa';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            if (!acepto) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ Debes aceptar la política de privacidad para continuar';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Validar email si se proporciona
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                formMessage.className = 'form-msg error';
+                formMessage.textContent = '❌ El email no tiene un formato válido';
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Aquí iría la lógica real de envío al servidor
+            // Por ahora simulamos el éxito
+            
+            // Deshabilitar botón temporalmente
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const textoOriginal = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Enviando...';
+            
+            // Simular envío (reemplazar con fetch real)
+            setTimeout(() => {
+                formMessage.className = 'form-msg success';
+                formMessage.innerHTML = `
+                    <strong>✅ ¡Solicitud enviada correctamente!</strong><br><br>
+                    Hola <strong>${nombre}</strong>, hemos recibido tu interés en <strong>${curso.replace(/-/g, ' ').toUpperCase()}</strong>.<br><br>
+                    Te contactaremos pronto al <strong>${telefono}</strong>.<br><br>
+                    <strong>¿Necesitas respuesta inmediata?</strong><br>
+                    Llámanos al <a href="tel:+34672249368" style="color: var(--naranja); font-weight: bold;">672 24 93 68</a> o 
+                    escríbenos por <a href="https://wa.me/34672249368?text=Hola, soy ${nombre} y quiero información sobre ${curso}" style="color: var(--naranja); font-weight: bold;">WhatsApp</a>
+                `;
+                
+                // Resetear formulario
+                this.reset();
+                
+                // Reactivar botón
+                submitBtn.disabled = false;
+                submitBtn.textContent = textoOriginal;
+                
+                // Scroll al mensaje
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Limpiar mensaje después de 15 segundos
+                setTimeout(() => {
+                    formMessage.className = 'form-msg';
+                    formMessage.textContent = '';
+                }, 15000);
+            }, 1500);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
