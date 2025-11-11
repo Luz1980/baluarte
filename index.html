@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-nova - Mentorización Estratégica 360° para Directivos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --red: #dc2626;
+            --gray-light: #f5f5f5;
+            --gray-dark: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: var(--white);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 70px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--red);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--red);
+            opacity: 0.1;
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        section h2 span {
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        /* Services Section */
+        #servicios {
+            background: var(--gray-light);
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--black);
+            color: var(--black);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border-radius: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-button:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .tab-button.active {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+        }
+
+        .services-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-detail {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-detail h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .service-detail p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+            line-height: 1.8;
+        }
+
+        .service-detail ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-detail li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray-dark);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .service-detail li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service-detail .checkmark-list li::before {
+            content: '✔';
+        }
+
+        .service-highlight {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--red);
+        }
+
+        .service-highlight p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Método EVA Section */
+        #metodo-eva {
+            background: var(--white);
+            position: relative;
+        }
+
+        .eva-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .eva-intro {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .eva-logo-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            opacity: 0.15;
+        }
+
+        .eva-logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .eva-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .eva-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .eva-phase {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-top: 4px solid var(--black);
+        }
+
+        .eva-phase:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-10px);
+            border-top-color: var(--red);
+        }
+
+        .eva-phase-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .eva-phase h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .eva-phase p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        #contacto {
+            background: var(--gray-light);
+            color: var(--black);
+        }
+
+        #contacto h2 {
+            color: var(--black);
+        }
+
+        #contacto .section-subtitle {
+            color: var(--gray-dark);
+        }
+
+        .contact-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: transparent;
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        .contact-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+        }
+
+        .contact-item-content {
+            text-align: center;
+        }
+
+        .contact-item-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .contact-item-content p {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+
+        .contact-item a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--red);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 1px solid var(--gray-dark);
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--black);
+            transition: all 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-tabs {
+                gap: 0.5rem;
+            }
+
+            .tab-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .service-detail {
+                padding: 2rem;
+            }
+
+            .service-detail h3 {
+                font-size: 1.6rem;
+            }
+
+            .eva-phases {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .service-detail {
+                padding: 2rem;
+            }
+
+            .service-detail h3 {
+                font-size: 1.6rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <img src="logo-rnova.png" alt="R-nova Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#metodo-eva">Método EVA</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Mentorización Estratégica <span>360°</span> para Directivos</h1>
+            <p>Decisiones acertadas, impacto real.</p>
+            <p class="tagline">Optimiza tu negocio con visión integral: fiscal, financiera, operativa y tecnológica. Sin soluciones prefabricadas. Sin tecnología innecesaria. Solo lo que tu empresa necesita para crecer.</p>
+            <a href="#contacto" class="cta-button">Comienza tu transformación</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios">
+        <h2>¿Qué <span>ofrecemos?</span></h2>
+        <p class="section-subtitle">Soluciones estratégicas sin tecnología innecesaria</p>
+
+        <div class="services-tabs">
+            <button class="tab-button active" onclick="switchTab(0)">Diagnóstico</button>
+            <button class="tab-button" onclick="switchTab(1)">Soluciones</button>
+            <button class="tab-button" onclick="switchTab(2)">IA</button>
+            <button class="tab-button" onclick="switchTab(3)">¿A quién ayudamos?</button>
+            <button class="tab-button" onclick="switchTab(4)">Lo que obtienes</button>
+        </div>
+
+        <div class="services-content">
+            <!-- Tab 1: Diagnóstico -->
+            <div class="tab-content active">
+                <div class="service-detail fade-in">
+                    <h3>Diagnóstico Estratégico Completo</h3>
+                    <p>Revisamos tu situación actual con lupa:</p>
+                    <ul>
+                        <li>Estructura organizativa</li>
+                        <li>Rendimiento financiero</li>
+                        <li>Modelo de contratación y costes laborales</li>
+                        <li>Riesgos fiscales y oportunidades legales</li>
+                        <li>Procesos clave y puntos críticos</li>
+                        <li>Acceso a subvenciones, ayudas e incentivos públicos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab 2: Soluciones -->
+            <div class="tab-content">
+                <div class="service-detail fade-in">
+                    <h3>Diseño de Soluciones Reales y Aplicables</h3>
+                    <p>Creamos contigo un plan claro:</p>
+                    <ul>
+                        <li>Ajuste de estructura para ganar eficiencia</li>
+                        <li>Reorganización de equipos o modelos de contratación</li>
+                        <li>Optimización fiscal sin riesgos</li>
+                        <li>Mejora de flujo de caja y financiación</li>
+                        <li>Planificación de inversión a corto y medio plazo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab 3: IA -->
+            <div class="tab-content">
+                <div class="service-detail fade-in">
+                    <h3>¿IA? Solo cuando aporta valor.</h3>
+                    <div class="service-highlight">
+                        <p>No vendemos IA. La usamos si mejora tus procesos, ahorra tiempo o reduce costes.</p>
+                    </div>
+                    <ul>
+                        <li>Automatización de tareas repetitivas</li>
+                        <li>Copilotos de soporte a equipos</li>
+                        <li>Modelos predictivos y analíticos</li>
+                        <li>Integraciones personalizadas con LLMs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab 4: A quién ayudamos -->
+            <div class="tab-content">
+                <div class="service-detail fade-in">
+                    <h3>¿A quién ayudamos?</h3>
+                    <ul>
+                        <li>CEOs que necesitan claridad y foco</li>
+                        <li>Directores financieros que buscan optimización real</li>
+                        <li>Fundadores que quieren crecer sin improvisar</li>
+                        <li>Equipos de dirección que necesitan una guía externa sin sesgos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab 5: Lo que obtienes -->
+            <div class="tab-content">
+                <div class="service-detail fade-in">
+                    <h3>Lo que obtienes</h3>
+                    <ul class="checkmark-list">
+                        <li>Plan de acción estratégico</li>
+                        <li>Acompañamiento mensual con indicadores</li>
+                        <li>Soluciones prácticas desde el primer mes</li>
+                        <li>Red de especialistas en fiscalidad, IA, financiación y operaciones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método EVA Section -->
+    <section id="metodo-eva">
+        <h2>Nuestro <span>Método EVA</span></h2>
+        <p class="section-subtitle">Mentoría de Alta Transformación</p>
+
+        <div class="eva-content">
+            <div class="eva-phases">
+                <div class="eva-phase fade-in">
+                    <div class="eva-phase-number">E</div>
+                    <h4>Exploración</h4>
+                    <p>Conectamos con tu situación actual, identificamos el desafío real y profundizamos en los obstáculos que frenan tu crecimiento</p>
+                </div>
+                <div class="eva-phase fade-in">
+                    <div class="eva-phase-number">V</div>
+                    <h4>Visión</h4>
+                    <p>Definimos tu futuro deseado, trabajamos creencias limitantes y generamos toma de conciencia para el cambio</p>
+                </div>
+                <div class="eva-phase fade-in">
+                    <div class="eva-phase-number">A</div>
+                    <h4>Acción</h4>
+                    <p>Diseñamos tu hoja de ruta estratégica con acciones priorizadas, fechas límite y acompañamiento continuo</p>
+                </div>
+            </div>
+
+            <div class="eva-intro fade-in">
+                <p class="eva-description">
+                    El Método EVA es nuestra metodología exclusiva de mentoría de alta transformación diseñada para directivos que buscan resultados tangibles. A través de un proceso estructurado en tres fases estratégicas — Exploración, Visión y Acción — conectamos tu realidad actual con tu futuro deseado, transformando desafíos en oportunidades mediante un enfoque que combina profundidad emocional con planificación estratégica.
+                </p>
+                <p class="eva-description">
+                    Desde la identificación de tu situación real y los obstáculos que te frenan, hasta el diseño de una hoja de ruta clara y accionable, el Método EVA trabaja tanto en el plano estratégico como en el emocional. Transformamos creencias limitantes en motores de crecimiento, clarificamos tu visión de futuro y te acompañamos en la implementación con soporte continuo. No es solo consultoría: es una experiencia de transformación integral con resultados medibles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto">
+        <h2><span>Contacto</span></h2>
+        <p class="section-subtitle">Estamos aquí para impulsar tu transformación empresarial</p>
+
+        <div class="contact-wrapper">
+            <!-- Formulario de Contacto -->
+            <div class="contact-form fade-in">
+                <h3>Solicita tu consulta</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicio">¿Qué servicio te interesa? *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="diagnostico">Diagnóstico Estratégico Completo</option>
+                            <option value="soluciones">Diseño de Soluciones</option>
+                            <option value="metodo-eva">Método EVA - Mentoría</option>
+                            <option value="consultoria-integral">Consultoría Integral</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos sobre tu situación *</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Enviar solicitud</button>
+
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-item-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@r-nova.es">info@r-nova.es</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 R-nova. Todos los derechos reservados. Mentorización Estratégica para Directivos.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.padding = '1rem 5%';
+            } else {
+                nav.style.padding = '1.5rem 5%';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitButton = this.querySelector('.form-submit');
+            
+            // Obtener datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                empresa: document.getElementById('empresa').value,
+                servicio: document.getElementById('servicio').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+            
+            // Deshabilitar botón durante el envío
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            
+            // Simular envío (aquí deberías integrar tu backend o servicio de email)
+            setTimeout(() => {
+                // Mostrar mensaje de éxito
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                formMessage.textContent = '¡Gracias! Tu solicitud ha sido enviada correctamente. Nos pondremos en contacto contigo pronto.';
+                
+                // Resetear formulario
+                this.reset();
+                
+                // Restaurar botón
+                submitButton.disabled = false;
+                submitButton.textContent = 'Enviar solicitud';
+                
+                // Ocultar mensaje después de 5 segundos
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                
+                // En producción, aquí iría tu código de envío real:
+                /*
+                fetch('tu-endpoint-de-backend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Manejar respuesta exitosa
+                })
+                .catch(error => {
+                    // Manejar error
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.';
+                });
+                */
+                
+            }, 1500);
+        });
+
+        // Tab Switching Function
+        function switchTab(tabIndex) {
+            // Get all tabs and contents
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            // Remove active class from all
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected
+            tabs[tabIndex].classList.add('active');
+            contents[tabIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
