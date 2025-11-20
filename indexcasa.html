@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa di Manuela - Club Casalingua</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fdfbf7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #c1272d 0%, #e74c3c 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #c1272d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: #e74c3c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f4f1ea" width="1200" height="600"/><path fill="%23c1272d" opacity="0.05" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            color: #c1272d;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .personal-note {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #009246;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #444;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #c1272d;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(193,39,45,0.3);
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: #a01f24;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(193,39,45,0.4);
+        }
+
+        .cta-button.secondary {
+            background: #009246;
+        }
+
+        .cta-button.secondary:hover {
+            background: #007a3a;
+        }
+
+        section {
+            padding: 4rem 1rem;
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #c1272d;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #c1272d;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .category-card h3 {
+            color: #c1272d;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .category-card p {
+            color: #666;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .category-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .category-card li {
+            padding: 0.4rem 0;
+            color: #555;
+        }
+
+        .category-card li:before {
+            content: "✓ ";
+            color: #009246;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .membership-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 3px solid #f0f0f0;
+        }
+
+        .plan-card:hover {
+            transform: scale(1.05);
+            border-color: #c1272d;
+        }
+
+        .plan-card.featured {
+            border-color: #c1272d;
+            position: relative;
+        }
+
+        .plan-card.featured::before {
+            content: "IL PIÙ SCELTO";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #c1272d;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .plan-card h3 {
+            font-size: 1.8rem;
+            color: #c1272d;
+            margin-bottom: 1rem;
+        }
+
+        .plan-card .features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .plan-card .features li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+
+        .plan-card .features li:before {
+            content: "✓";
+            color: #009246;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #009246 0%, #00a651 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .benefits h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefit-item h4 {
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #009246;
+            margin: 2rem 0;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #c1272d;
+            font-style: normal;
+        }
+
+        .warm-section {
+            background: linear-gradient(to bottom, #fff9f0, #ffffff);
+            border-top: 3px solid #f0e6d6;
+            border-bottom: 3px solid #f0e6d6;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .manuela-signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5rem;
+            color: #c1272d;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🏡 Casa di Manuela</h1>
+        <p class="subtitle">Club Casalingua</p>
+        <p class="tagline">Le mie lezioni di italiano, ora anche online dal salotto di casa mia</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#benvenuto">Benvenuto</a>
+            <a href="#cosa-facciamo">Cosa Facciamo</a>
+            <a href="#come-funziona">Come Funziona</a>
+            <a href="#per-te">Per Te</a>
+            <a href="#scrivimi">Scrivimi</a>
+        </div>
+    </nav>
+
+    <section id="benvenuto" class="hero">
+        <div class="container">
+            <h2>Ciao! Sono felice che tu sia qui 💚</h2>
+            <p class="hero-text">
+                Lo so, sei tornato a casa tua, alla tua vita, al tuo lavoro... ma il nostro tempo insieme in Italia non deve finire qui. 
+                Ho pensato a te, a tutti voi che avete studiato con me nel salotto di casa mia, tra un caffè e una chiacchierata.
+            </p>
+            <div class="personal-note">
+                "Ricordi le nostre lezioni qui? Il divano comodo, i libri d'arte sul tavolo, il profumo del caffè... 
+                Ora puoi entrare nella mia casa anche da lontano. Stesso spirito, stessa calma, stesso modo di imparare l'italiano come lo viviamo noi."
+            </div>
+            <p class="hero-text">
+                Questa è la mia casa online. Entra quando vuoi, siamo sempre aperti per te.
+            </p>
+            <a href="#come-funziona" class="cta-button">Voglio sapere come funziona</a>
+            <a href="#per-te" class="cta-button secondary">Il tuo regalo di benvenuto</a>
+        </div>
+    </section>
+
+    <section id="cosa-facciamo" class="warm-section">
+        <div class="container">
+            <h2>Cosa facciamo insieme qui dentro?</h2>
+            <p class="section-intro">
+                È semplice: continuiamo a fare quello che abbiamo sempre fatto, ma ora possiamo farlo anche quando sei a migliaia di chilometri. 
+                Ti propongo materiali nuovi ogni mese, ci vediamo online per parlare e ridere come sempre, e tu pratichi quando hai tempo.
+            </p>
+            
+            <div class="categories">
+                <div class="category-card">
+                    <h3>🎨 Arte e Bellezza</h3>
+                    <p>Sai quanto amo l'arte. Ogni mese ti porto con me agli Uffizi, a visitare chiese, a scoprire quadri. Con i miei audio, le schede che puoi scaricare, e sempre con il vocabolario che serve.</p>
+                    <ul>
+                        <li>Passeggiate virtuali nei musei</li>
+                        <li>Storie delle opere che amo</li>
+                        <li>Vocabolario per descrivere l'arte</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>🏛️ Storia e Città</h3>
+                    <p>Ti ricordi quando camminavamo per la Piazza del Campo? Ora puoi rivivere quelle passeggiate con i miei racconti in italiano, le foto, le storie di ogni angolo.</p>
+                    <ul>
+                        <li>Le nostre passeggiate raccontate</li>
+                        <li>Storia italiana spiegata semplice</li>
+                        <li>I posti che conosci, in italiano</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>☕ Vita di Tutti i Giorni</h3>
+                    <p>Come si ordina un caffè? Cosa dire in farmacia? Come chiedere indicazioni? Tutto quello che serve per vivere l'Italia, anche da lontano.</p>
+                    <ul>
+                        <li>Dialoghi reali del bar, del mercato</li>
+                        <li>Frasi che uso io ogni giorno</li>
+                        <li>Role play per le nostre videochiamate</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>📚 Grammatica con Calma</h3>
+                    <p>Niente liste noiose. La grammatica come sempre: attraverso le storie, i ricordi del tuo viaggio, quello che hai vissuto qui. Impariamo facendo.</p>
+                    <ul>
+                        <li>Passato prossimo con i tuoi ricordi</li>
+                        <li>Come esprimere opinioni</li>
+                        <li>Esercizi dai tuoi esempi reali</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>✈️ Prepara il Prossimo Viaggio</h3>
+                    <p>Quando tornerai? Prepariamoci insieme! Email per prenotare, frasi per l'aeroporto, tutto quello che ti serve per sentirti sicuro.</p>
+                    <ul>
+                        <li>Come prenotare in italiano</li>
+                        <li>Frasi per viaggiare tranquillo</li>
+                        <li>Checklist per il tuo ritorno</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>👥 La Nostra Comunità</h3>
+                    <p>Non sei solo! Qui ci sono altri tuoi compagni che, come te, vogliono mantenere vivo l'italiano. Ci incontriamo, parliamo, ridiamo.</p>
+                    <ul>
+                        <li>Incontri online ogni settimana</li>
+                        <li>Serate tematiche: cinema, cucina, arte</li>
+                        <li>Un posto dove scrivere e commentare</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="come-funziona">
+        <div class="container">
+            <h2>Come funziona? È semplicissimo</h2>
+            <p class="section-intro">
+                Non ti preoccupare, non serve essere bravo con il computer. È tutto pensato per essere facile come entrare nella mia casa vera.
+            </p>
+
+            <div class="membership-plans">
+                <div class="plan-card">
+                    <h3>Passeggiata</h3>
+                    <p style="color: #999; margin-bottom: 1.5rem; font-style: italic;">Vai al tuo ritmo, quando hai tempo</p>
+                    <ul class="features">
+                        <li>Tutte le schede nuove ogni mese</li>
+                        <li>Audio registrati da me</li>
+                        <li>Materiali PDF da scaricare</li>
+                        <li>1 incontro di gruppo al mese</li>
+                        <li>La mia newsletter ogni mese</li>
+                    </ul>
+                    <a href="#scrivimi" class="cta-button">Mi interessa</a>
+                </div>
+
+                <div class="plan-card featured">
+                    <h3>Cappuccino</h3>
+                    <p style="color: #999; margin-bottom: 1.5rem; font-style: italic;">Come le nostre lezioni settimanali</p>
+                    <ul class="features">
+                        <li>Tutto quello di Passeggiata</li>
+                        <li>4 incontri di gruppo al mese</li>
+                        <li>Conversazione ogni giovedì su Zoom</li>
+                        <li>Registrazioni se non puoi venire</li>
+                        <li>Sconto sulle lezioni solo per te</li>
+                        <li>Certificato quando finisci un livello</li>
+                    </ul>
+                    <a href="#scrivimi" class="cta-button">Voglio questo!</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 10px;">
+                <h3 style="color: #c1272d; margin-bottom: 1rem;">Preferisci parlare solo con me?</h3>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 1rem; line-height: 1.7;">
+                    Nessun problema! Possiamo fare lezioni individuali, proprio come facevamo qui a casa. 
+                    Parliamo di quello che vuoi tu: arte, grammatica, o semplicemente la tua settimana.
+                </p>
+                <p style="color: #666;"><strong>Pacchetti disponibili:</strong> 4 o 8 lezioni da 45 minuti</p>
+                <p style="color: #666; font-size: 0.95rem; margin-top: 0.5rem;">Prenoti con un clic, ricevi il link Zoom, ci vediamo all'orario che hai scelto.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="per-te" class="warm-section">
+        <div class="container">
+            <div class="benefits">
+                <h3>I Tuoi Regali di Benvenuto</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                    Sei stato nella mia casa vera, ora ti do le chiavi di quella online 🔑
+                </p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h4>🎁 Primo Mese Gratis</h4>
+                        <p>Prova Passeggiata per 30 giorni. Guarda come funziona, esplora tutto, e poi decidi. Usa il codice PRIMOMMESE quando ti iscrivi.</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <h4>👥 Porta un Amico</h4>
+                        <p>Hai un amico che vorrebbe studiare italiano? Se si iscrive dicendo che vieni da me, tu ricevi uno sconto o una lezione gratis. Facciamo crescere la famiglia!</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <h4>🏆 Il Tuo Certificato</h4>
+                        <p>Quando completi un livello, ti mando un certificato con le ore di studio e tutto quello che hai imparato. È tuo, te lo sei guadagnato!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Quando sono tornata in California, mi mancava così tanto il giovedì pomeriggio con Manuela. Ora lo abbiamo di nuovo! Ci colleghiamo tutti da posti diversi del mondo, ma è come essere ancora nel suo salotto. Manuela è sempre lei, con il suo sorriso e la sua pazienza."</p>
+                <p class="testimonial-author">— Maria, studentessa dal 2023</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"Non sono bravo con il computer, ma qui è tutto facile. Clicco sul link, entro, e c'è tutto pronto. Gli audio di Manuela li ascolto mentre cammino, i PDF li stampo e li studio la sera. È perfetto per me che lavoro tutto il giorno."</p>
+                <p class="testimonial-author">— John, studente dal 2022</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="scrivimi" style="background: linear-gradient(135deg, #c1272d 0%, #e74c3c 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white;">Ti aspetto qui, quando vuoi 💌</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                Mi manchi! Mi mancano le nostre chiacchierate, il tuo italiano che migliorava ogni giorno, 
+                le tue domande e anche i tuoi errori (che poi correggevi subito!).
+            </p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                La porta della mia casa è sempre aperta per te. Ora anche online.
+            </p>
+            <a href="mailto:manuela@esempio.com?subject=Ciao Manuela, voglio entrare nel Club Casalingua" class="cta-button secondary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                Scrivimi e Ci Vediamo Presto
+            </a>
+            <p style="margin-top: 2rem; opacity: 0.95; font-size: 1.05rem;">
+                Scrivimi in inglese, in italiano, come preferisci. Ti rispondo sempre io, Manuela.
+            </p>
+            <p class="manuela-signature">Un abbraccio grande, Manuela</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>🏡 Casa di Manuela - Club Casalingua</strong></p>
+            <p>Le mie lezioni di italiano dal salotto di casa mia, ora anche online</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                © 2025 - Con amore da Siena
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
